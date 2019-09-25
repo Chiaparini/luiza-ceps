@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Store } from '@ngxs/store';
-import { GetAddress } from '../../store/actions/form.actions';
+import { GetAddress } from '../../../store/actions/form.actions';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.scss']
 })
-export class FormComponent implements OnInit {
+export class FormComponent {
 
   addressForm: FormGroup = new FormGroup({
     cep: new FormControl('')
@@ -20,9 +20,6 @@ export class FormComponent implements OnInit {
 
   onSubmit(): void {
     this.store.dispatch(new GetAddress(this.addressForm.value.cep))
-  }
-
-  ngOnInit() {
   }
 
 }

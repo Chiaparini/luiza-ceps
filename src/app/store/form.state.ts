@@ -1,8 +1,8 @@
 import { State, Action, StateContext } from "@ngxs/store";
 import { take } from 'rxjs/operators';
 import { AddressService } from '../services/address.service';
-import { GetAddress, GetCoords } from './actions/form.actions';
-import { SetAddress } from './actions/address.actions';
+import { GetAddress, GetCoords, SetLoading } from './actions/form.actions';
+import { SetAddress, ResetAddress } from './actions/address.actions';
 import { FormAddress } from '../models/formaddress.model';
 import { Address } from '../models/address.model';
 
@@ -10,7 +10,8 @@ import { Address } from '../models/address.model';
     name: 'formaddress',
     defaults: {
         input: '',
-        loading: false
+        loading: false,
+        error: false
     }
 })
 export class FormState {
@@ -18,10 +19,17 @@ export class FormState {
 
     @Action(GetAddress)
     getAddress(ctx: StateContext<FormAddress>, payload: GetAddress) {
+        ctx.dispatch(new ResetAddress())
+        ctx.patchState({loading: true, error: false})
+
         const observer = this.service.getAddress(payload.input).pipe(take(1))
 
         observer.subscribe(res => {
             ctx.dispatch(new GetCoords(res))
+        }, err => {
+            //ctx.dispatch()
+            ctx.patchState({loading: false, error: true})
+            console.error(err)
         })
     }
 
@@ -36,7 +44,18 @@ export class FormState {
                 coordinates: firstResult.geometry.location
             }
 
+            ctx.patchState({loading: false})
             ctx.dispatch(new SetAddress(mapedCoords))
+        }, err => {
+            ctx.patchState({loading: false, error: true})
+            console.error(err)
+        })
+    }
+
+    @Action(SetLoading)
+    setLoading(ctx: StateContext<FormAddress>, payload: SetLoading) {
+        ctx.patchState({
+            loading: payload.loading
         })
     }
 }

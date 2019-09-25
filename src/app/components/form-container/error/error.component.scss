@@ -1,0 +1,9 @@
+@import '../../../../assets/scss/variables';
+
+.error {
+    border-radius: 5px;
+    max-width: 420px;
+    padding: 16px;
+
+    background-color: $primary-color;
+}

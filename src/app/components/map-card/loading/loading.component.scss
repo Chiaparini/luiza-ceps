@@ -1,0 +1,13 @@
+@import '../../../../assets/scss/variables';
+
+.loading {
+    border-radius: 5px;
+    max-width: 420px;
+    padding: 16px;
+
+    background-color: $primary-color;
+
+    &__wrapper {
+        width: 100%;
+    }
+}

@@ -1,9 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Address } from '../../models/address.model';
-import { AddressState } from '../../store/address.state';
+import { Component } from '@angular/core';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
-import { ResetAddress } from '../../store/actions/address.actions';
+
+import { Address } from '../../../models/address.model';
+import { AddressState } from '../../../store/address.state';
+import { ResetAddress } from '../../../store/actions/address.actions';
 
 @Component({
   selector: 'app-map',

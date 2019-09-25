@@ -9,3 +9,8 @@ export class GetCoords {
     static readonly type = '[Form] Get Coords'
     constructor(public address: Address) {}
 }
+
+export class SetLoading {
+    static readonly type = '[Form] Set Loading'
+    constructor(public loading: boolean) {}
+}

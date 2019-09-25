@@ -1,0 +1,13 @@
+@import '../../../../assets/scss/variables';
+
+.map {
+    border-radius: 5px;
+    max-width: 420px;
+    padding: 16px;
+
+    background-color: $primary-color;
+}
+
+agm-map {
+    height: 350px;
+}

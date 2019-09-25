@@ -1,4 +1,11 @@
-<div class="form-wrapper">
-    <app-form></app-form>
-    <app-map></app-map>
+<div class="form-container">
+    <div class="form-wrapper">
+        <app-form></app-form>
+    </div>
+    
+    <app-loading *ngIf='loading$ | async'></app-loading>
+
+    <app-error *ngIf='error$ | async'></app-error>    
+
+    <app-map-card></app-map-card>
 </div>
