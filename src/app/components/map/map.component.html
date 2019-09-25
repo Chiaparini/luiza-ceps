@@ -1,0 +1,15 @@
+<div *ngIf='!!address.cep'>
+
+    <a href="#" (click)='resetAddress()'>X</a>
+
+    <article>
+        <h1>{{ address.logradouro }}</h1>
+        <p>{{ address.bairro }}</p>
+        <p>{{ address.localidade }} | {{ address.uf }} </p>
+        <p>{{ address.cep }}</p>
+    </article>
+
+    <agm-map [zoom]="15" [latitude]='address.coordinates.lat' [longitude]='address.coordinates.lng'>
+        <agm-marker [latitude]='address.coordinates.lat' [longitude]='address.coordinates.lng'></agm-marker>
+    </agm-map>
+</div>

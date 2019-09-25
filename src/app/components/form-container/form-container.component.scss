@@ -1,0 +1,8 @@
+@import '../../../assets/scss/variables';
+
+.form-wrapper {
+    display: block;
+    max-width: 420px;
+    padding: 16px;
+    background-color: $primary-color;
+}

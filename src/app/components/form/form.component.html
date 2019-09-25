@@ -1,0 +1,13 @@
+<form [formGroup]='addressForm' (ngSubmit)='onSubmit()' class="address">
+  
+  <h2 class="address__title">Consultar endereço:</h2>
+  
+  <label for="address-input" class="address__label label">
+    CEP
+  </label>
+  
+  <input id="address-input" formControlName='cep' type="text" mask='00000-000'  placeholder="00000-000">
+  
+  <button type="submit">Buscar</button>
+
+</form>
