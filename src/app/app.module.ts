@@ -24,6 +24,8 @@ import { MapComponent } from './components/map-card/map/map.component';
 import { LoadingComponent } from './components/map-card/loading/loading.component';
 import { MapCardComponent } from './components/map-card/map-card.component';
 import { ErrorComponent } from './components/form-container/error/error.component';
+import { ColorBarComponent } from './components/color-bar/color-bar.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { ErrorComponent } from './components/form-container/error/error.componen
     MapComponent,
     LoadingComponent,
     MapCardComponent,
-    ErrorComponent
+    ErrorComponent,
+    ColorBarComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,7 @@ import { ErrorComponent } from './components/form-container/error/error.componen
     NgxSkeletonLoaderModule,
 
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDnUn4i9tepMMtc2njQnZceUoj94ac2skA'
+      apiKey: environment.mapsKey
     }),
 
     // State

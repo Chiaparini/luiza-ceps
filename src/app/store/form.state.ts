@@ -1,11 +1,10 @@
 import { State, Action, StateContext } from "@ngxs/store";
 import { take, map } from 'rxjs/operators';
 import { AddressService } from '../services/address.service';
-import { GetAddress, GetCoords, SetLoading } from './actions/form.actions';
+import { GetAddress, GetCoords } from './actions/form.actions';
 import { SetAddress, ResetAddress } from './actions/address.actions';
 import { FormAddress } from '../models/formaddress.model';
 import { Address } from '../models/address.model';
-import { throwError } from 'rxjs';
 
 @State<FormAddress>({
     name: 'formaddress',
@@ -55,14 +54,6 @@ export class FormState {
             ctx.dispatch(new SetAddress(mapedCoords))
         }, err => {
             ctx.patchState({loading: false, error: true})
-            console.error(err)
-        })
-    }
-
-    @Action(SetLoading)
-    setLoading(ctx: StateContext<FormAddress>, payload: SetLoading) {
-        ctx.patchState({
-            loading: payload.loading
         })
     }
 }

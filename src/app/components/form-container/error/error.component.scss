@@ -1,9 +1,13 @@
 @import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/mixins';
 
 .error {
-    border-radius: 5px;
-    max-width: 420px;
-    padding: 16px;
+    @include bluebox;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 
-    background-color: $primary-color;
+    text-align: center;
+    min-height: 150px;
+
 }

@@ -1,2 +1,12 @@
 @import 'variables';
+@import 'mixins';
 @import 'reset';
+
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,700&display=swap');
+
+body {
+    font-family: 'Cabin', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: $primary-color;
+    background-color: #00659c;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAB1JREFUeNpi/P//PwM6YGLAApAF1WEMRqK1AwQYALVzBip2fYr/AAAAAElFTkSuQmCC);
+}

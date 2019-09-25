@@ -1,14 +1,18 @@
 <div class="map" *ngIf='!!address.cep'>
-    <a href="#" (click)='resetAddress()'>X</a>
+    <a class="map__close" href="#" (click)='resetAddress()'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path fill="#fff" d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"/>
+        </svg>
+    </a>
 
-    <article>
+    <article class="map__text">
         <h1>{{ address.logradouro }}</h1>
         <p>{{ address.bairro }}</p>
         <p>{{ address.localidade }} | {{ address.uf }} </p>
-        <p>{{ address.cep }}</p>
+        <p class="cep">{{ address.cep }}</p>
     </article>
 
-    <agm-map [zoom]="15" [latitude]='address.coordinates.lat' [longitude]='address.coordinates.lng'>
+    <agm-map class="map__gmap" [zoom]="15" [latitude]='address.coordinates.lat' [longitude]='address.coordinates.lng'>
         <agm-marker [latitude]='address.coordinates.lat' [longitude]='address.coordinates.lng'></agm-marker>
     </agm-map>
 </div>

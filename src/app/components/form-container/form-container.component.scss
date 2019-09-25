@@ -1,13 +1,29 @@
 @import '../../../assets/scss/variables';
+@import '../../../assets/scss/mixins';
 
 .form-wrapper {
-    display: block;
-    max-width: 420px;
+    @include bluebox;
+
     margin-bottom: 2rem;
-    padding: 16px;
-    background-color: $primary-color;
 }
 
 .form-container {
+    display: flex;
+    flex-direction: column;
 
+    align-items: center;
+    justify-content: center;
+    
+    min-height: 100vh;
+    width: 100%;
+
+    padding: 16px;
+}
+
+.loading {
+    @include bluebox;
+}
+
+.map-card {
+    width: 100%;
 }

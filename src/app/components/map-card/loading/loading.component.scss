@@ -1,13 +1,58 @@
 @import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/mixins';
+
+@mixin loadingblock($size, $width) {
+    position: relative;
+    overflow: hidden;
+    width: $width;
+    height: $size;
+    background-color: #c5c5c5;
+    border-radius: 6px;
+
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        left: 0%;
+        height: 100%;
+        background-color: #e6e6e6;
+        width: 50px;
+        box-shadow: 0px 0px 20px 20px #e6e6e6;
+        animation: farol .5s linear infinite;
+    }
+}
+
+@keyframes farol {
+    0% {
+        left: 0;
+    }
+    100% {
+        left: 100%;
+    }
+}
 
 .loading {
-    border-radius: 5px;
-    max-width: 420px;
-    padding: 16px;
-
-    background-color: $primary-color;
-
     &__wrapper {
         width: 100%;
+    }
+
+    &__map {
+        @include loadingblock(350px, 100%);
+    }
+}
+
+.text {
+    display: block;
+    margin-bottom: 16px;
+    
+    &__title {
+        @include loadingblock(22px, 80%);
+
+        margin-bottom: 12px;
+    }
+
+    &__paragraph {
+        @include loadingblock(16px, 45%);
+        margin-bottom: 10px;
     }
 }

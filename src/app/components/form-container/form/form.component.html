@@ -1,13 +1,22 @@
-<form [formGroup]='addressForm' (ngSubmit)='onSubmit()' class="address">
+<form class="address" [formGroup]='addressForm' (ngSubmit)='onSubmit()'>
   
   <h2 class="address__title">Consultar endereço:</h2>
   
-  <label for="address-input" class="address__label label">
-    CEP
-  </label>
+  <div class="address__form form">
+    <div class="form__input-group input-group">
+      <input 
+        (change)="clearError()" 
+        [ngClass]="{'input-group__input': true, 'input-group__input--error': error}"
+        id="address-input" 
+        formControlName='cep' 
+        type="text" 
+        mask='00000-000' >
+      <label [ngClass]="{'input-group__label': true, 'input-group__label--active': !!addressForm.value.cep}" for="address-input" >
+        CEP
+      </label>
+    </div>
   
-  <input id="address-input" formControlName='cep' type="text" mask='00000-000'  placeholder="00000-000">
-  
-  <button type="submit">Buscar</button>
+    <button class="form__button" type="submit">Buscar</button>
+  </div>
 
 </form>

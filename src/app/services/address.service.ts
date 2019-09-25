@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Address } from '../models/address.model';
 
 @Injectable()
@@ -20,6 +21,6 @@ export class AddressService {
 
     getCoordinates(address: Address) {
         return this.httpClient
-            .get(`${this.mapsApi}?address=${address.cep} ${address.localidade} ${address.logradouro}&key=AIzaSyDnUn4i9tepMMtc2njQnZceUoj94ac2skA`)
+            .get(`${this.mapsApi}?address=${address.cep} ${address.localidade} ${address.logradouro}&key=${environment.mapsKey}`)
     }
 }

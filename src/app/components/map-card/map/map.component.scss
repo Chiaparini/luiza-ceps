@@ -1,11 +1,35 @@
 @import '../../../../assets/scss/variables';
+@import '../../../../assets/scss/mixins';
 
 .map {
-    border-radius: 5px;
-    max-width: 420px;
-    padding: 16px;
+    @include bluebox;
+    position: relative;
 
-    background-color: $primary-color;
+    &__close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        transition: all .15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+        &:hover {
+            transform: scale(1.5);
+        }
+    }
+
+    &__text {
+        margin-bottom: 12px;
+
+        h1 {
+            margin-bottom: 8px;
+        }
+        p {
+            margin-bottom: 4px;
+        }
+
+        .cep {
+            font-size: 12px;
+        }
+    }
 }
 
 agm-map {

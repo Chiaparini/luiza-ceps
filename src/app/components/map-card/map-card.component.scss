@@ -1,0 +1,9 @@
+.map-card {
+    width: 100%;
+
+    &__map {
+        @extend .map-card;
+        display: flex;
+        justify-content: center;
+    }
+}

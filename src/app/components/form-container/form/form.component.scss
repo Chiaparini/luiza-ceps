@@ -1,0 +1,91 @@
+@import '../../../../assets/scss/variables';
+
+.address {
+    display: flex;
+    flex-direction: column;
+    min-height: 80px;
+    justify-content: space-between;
+
+    &__title {
+    }
+
+    &__form {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.form {
+    &__input-group {
+    }
+
+    &__button {
+        padding: 8px 16px;
+        border: 1px solid;
+        border-radius: 3px;
+        
+        background-color: $primary-color;
+        color: $secondary-color;
+        
+        transition: all .15s ease-in-out;
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: $secondary-color;
+            color: $primary-color;
+        }
+    }
+}
+
+.input-group {
+    position: relative;
+    flex-basis: 60%;
+
+    &__label {
+        position: absolute;
+        left: 8px;
+
+        top: 50%;
+        transform: translateY(-50%);
+
+        transition: all .2s linear;
+
+        color: $secondary-color;
+
+        &--active {
+            font-size: 8px;
+            transform: translateY(0);
+            top: 0;
+        }
+    }
+
+    &__input {
+        width: 100%;
+        min-height: 35px;
+        
+        padding: 4px 8px;
+        border-radius: 3px;
+        
+        line-height: 27px;
+        font-size: 16px;
+        color: $secondary-color;
+        font-family: 'Cabin';
+
+        &:focus {
+            &+.input-group__label {
+                font-size: 8px;
+                transform: translateY(0);
+                top: 1px;
+            }
+        }
+
+        &--error {
+            box-shadow: inset 0px 0px 4px 1px rgba(244, 67, 54, 0.8);
+        }
+    }
+
+    @media (min-width: $large) {
+        flex-basis: 70%;
+    }
+}

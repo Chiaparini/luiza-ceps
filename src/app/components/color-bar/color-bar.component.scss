@@ -1,0 +1,28 @@
+$colors:
+    #ffce00,
+    #fb9600,
+    #e25335,
+    #de349e,
+    #bf2fdc,
+    #5d33d5,
+    #0083ca,
+    #33c3dd,
+    #32d9a1,
+    #3fcb2a;
+
+@each $color in $colors {
+    $i: index($colors, $color);
+    .color-#{$i} {
+        background-color: $color;
+        flex-grow: 1;
+        height: 5px;
+    }
+}
+
+.colors {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+}
