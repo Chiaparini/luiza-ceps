@@ -1,10 +1,11 @@
 import { State, Action, StateContext } from "@ngxs/store";
-import { take } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 import { AddressService } from '../services/address.service';
 import { GetAddress, GetCoords, SetLoading } from './actions/form.actions';
 import { SetAddress, ResetAddress } from './actions/address.actions';
 import { FormAddress } from '../models/formaddress.model';
 import { Address } from '../models/address.model';
+import { throwError } from 'rxjs';
 
 @State<FormAddress>({
     name: 'formaddress',
@@ -22,22 +23,28 @@ export class FormState {
         ctx.dispatch(new ResetAddress())
         ctx.patchState({loading: true, error: false})
 
-        const observer = this.service.getAddress(payload.input).pipe(take(1))
-
-        observer.subscribe(res => {
+        this.service.getAddress(payload.input).pipe(
+            map((res: any) => {
+                if (res.erro) throw new Error('Endereço não encontrado')
+                return res
+            }),
+            take(1)
+        ).subscribe((res: any) => {
             ctx.dispatch(new GetCoords(res))
         }, err => {
-            //ctx.dispatch()
             ctx.patchState({loading: false, error: true})
-            console.error(err)
         })
     }
 
     @Action(GetCoords)
     getCoords(ctx: StateContext<FormAddress>, payload: GetCoords) {
-        const observer = this.service.getCoordinates(payload.address).pipe(take(1))
-
-        observer.subscribe((res: any) => {
+        this.service.getCoordinates(payload.address).pipe(
+            map((res: any) => {
+                if (!res.results.length) throw new Error('Zero results')
+                return res
+            }),
+            take(1)
+        ).subscribe((res: any) => {
             const [firstResult, ] = res.results,
             mapedCoords: Address = {
                 ...payload.address,
