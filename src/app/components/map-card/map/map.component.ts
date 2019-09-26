@@ -14,7 +14,7 @@ import { ResetAddress } from '../../../store/actions/address.actions';
 export class MapComponent {
   @Select(AddressState) address$: Observable<Address>
   address: Address
-  
+
   constructor(private store: Store) {
     this.address$.subscribe(res => this.address = res)
   }

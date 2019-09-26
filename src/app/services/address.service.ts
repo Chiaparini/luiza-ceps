@@ -6,10 +6,10 @@ import { Address } from '../models/address.model';
 
 @Injectable()
 export class AddressService {
-    
-    private api: string = "https://viacep.com.br/ws"
-    private mapsApi: string = "https://maps.googleapis.com/maps/api/geocode/json"
-    
+
+    private api = 'https://viacep.com.br/ws'
+    private mapsApi = 'https://maps.googleapis.com/maps/api/geocode/json'
+
     constructor(
         private httpClient: HttpClient,
     ) { }

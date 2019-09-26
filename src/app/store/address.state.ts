@@ -1,4 +1,4 @@
-import { State, Action, StateContext } from "@ngxs/store";
+import { State, Action, StateContext } from '@ngxs/store';
 import { Address } from '../models/address.model';
 import { SetAddress, ResetAddress } from './actions/address.actions';
 

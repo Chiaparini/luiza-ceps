@@ -1,4 +1,4 @@
-import { State, Action, StateContext } from "@ngxs/store";
+import { State, Action, StateContext } from '@ngxs/store';
 import { take, map } from 'rxjs/operators';
 import { AddressService } from '../services/address.service';
 import { GetAddress, GetCoords } from './actions/form.actions';
@@ -24,7 +24,9 @@ export class FormState {
 
         this.service.getAddress(payload.input).pipe(
             map((res: any) => {
-                if (res.erro) throw new Error('Endereço não encontrado')
+                if (res.erro) {
+                    throw new Error('Endereço não encontrado')
+                }
                 return res
             }),
             take(1)
@@ -39,13 +41,15 @@ export class FormState {
     getCoords(ctx: StateContext<FormAddress>, payload: GetCoords) {
         this.service.getCoordinates(payload.address).pipe(
             map((res: any) => {
-                if (!res.results.length) throw new Error('Zero results')
+                if (!res.results.length) {
+                    throw new Error('Zero results')
+                }
                 return res
             }),
             take(1)
         ).subscribe((res: any) => {
-            const [firstResult, ] = res.results,
-            mapedCoords: Address = {
+            const [firstResult, ] = res.results
+            const mapedCoords: Address = {
                 ...payload.address,
                 coordinates: firstResult.geometry.location
             }

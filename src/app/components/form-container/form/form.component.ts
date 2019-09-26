@@ -11,7 +11,7 @@ import { GetAddress } from '../../../store/actions/form.actions';
 export class FormComponent {
 
   cep: string
-  error: boolean = false
+  error = false
 
   addressForm: FormGroup = new FormGroup({
     cep: new FormControl(this.cep, [
@@ -24,7 +24,7 @@ export class FormComponent {
   ) { }
 
   onSubmit(): void {
-    if (this.addressForm.controls.cep.errors) { 
+    if (this.addressForm.controls.cep.errors) {
       this.error = true
       throw new Error('CEP requerido')
     }
