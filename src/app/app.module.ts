@@ -55,7 +55,7 @@ import { environment } from '../environments/environment';
       AddressState,
       FormState
     ], {
-      developmentMode: true
+      developmentMode: !environment.production
     }),
     NgxsLoggerPluginModule.forRoot()
   ],
