@@ -7,6 +7,10 @@
 
 ## Modo desenvolvimento
 
+| --- |
+| AVISO: Para rodar esse projeto, é necessario uma API Key do Google Developers. Infos [aqui](https://developers.google.com/maps/documentation/javascript/get-api-key). |
+| --- |
+
 Rode `npm i` e aguarde a instalação das dependências
 
 Rode `ng serve` para iniciar um servidor local. Navegue para `http://localhost:4200/`.
