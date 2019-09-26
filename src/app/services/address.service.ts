@@ -19,7 +19,7 @@ export class AddressService {
             .jsonp<Address>(`${this.api}/${cep}/json/?callback=JSONP_CALLBACK`, 'JSONP_CALLBACK')
     }
 
-    getCoordinates(address: Address) {
+    getCoordinates(address: Address): Observable<any> {
         return this.httpClient
             .get(`${this.mapsApi}?address=${address.cep} ${address.localidade} ${address.logradouro}&key=${environment.mapsKey}`)
     }
