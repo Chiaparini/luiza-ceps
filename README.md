@@ -11,9 +11,9 @@
 
 Rode `npm i` e aguarde a instalação das dependências
 
-Rode `ng serve` para iniciar um servidor local. Navegue para `http://localhost:4200/`.
+Rode `npm run start` para iniciar um servidor local. Navegue para `http://localhost:4200/`.
 
 ## Unit tests
 
-Rode `ng test` para executar os testes.
+Rode `npm run test` para executar os testes.
 [Karma](https://karma-runner.github.io)
