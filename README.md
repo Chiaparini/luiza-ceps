@@ -7,7 +7,7 @@
 
 ## Modo desenvolvimento
 
-> **AVISO**: Para rodar esse projeto, é necessario uma API Key do Google Developers. Infos [aqui](https://developers.google.com/maps/documentation/javascript/get-api-key).
+> **AVISO**: Para rodar esse projeto, é necessario uma API Key do Google Developers. Infos [aqui](https://developers.google.com/maps/documentation/javascript/get-api-key). E então colocar a chave na propriedade `mapsKey` do arquivo `environment.ts`
 
 Rode `npm i` e aguarde a instalação das dependências
 
