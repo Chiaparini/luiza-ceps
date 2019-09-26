@@ -8,7 +8,6 @@ import { AgmCoreModule } from '@agm/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
-import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
@@ -44,7 +43,6 @@ import { environment } from '../environments/environment';
     HttpClientJsonpModule,
 
     NgxMaskModule.forRoot(),
-    NgxSkeletonLoaderModule,
 
     AgmCoreModule.forRoot({
       apiKey: environment.mapsKey
